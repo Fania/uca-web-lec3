@@ -1,0 +1,68 @@
+
+:root {
+  --green: #aeb459;
+  --brightgreen: #f6ff7e;
+  --blue: #4a9bfa;
+  --gray: #687085;
+  --red: #cea290;
+  --orange: #f4d6a2;
+  /* --lightgray: #b9b1c4; */
+  /* --black: #11274b; */
+}
+
+
+.reveal .slides>section.present .split2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.reveal .slides>section.present .group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.reveal h2 {
+  color: var(--blue);
+}
+.reveal h3 {
+  color: var(--green);
+}
+.reveal em {
+  color: var(--red);
+}
+.reveal b, .reveal strong {
+  color: var(--brightgreen);
+}
+.reveal time {
+  color: var(--brightgreen);
+}
+span.gray {
+  color: var(--gray);
+}
+.reveal code {
+  color: var(--orange);
+}
+
+.reveal p.nomargin {
+  margin: -15px 0;
+}
+.reveal p.blank {
+  margin: 15px 0;
+  color: #191919;
+}
+.reveal ul.noul {
+  list-style-type: none;
+  margin: 0;
+}
+
+
+@media screen and (min-width: 600px) {
+  .reveal .slides>section.present .split2 {
+    flex-direction: row;
+  }
+}
