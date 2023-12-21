@@ -96,6 +96,127 @@
 
 
 
+
+
+
+
+# LOCAL STORAGE: **01**
+<!-- .slide: class="crammed" -->
+
+Browsers have **their own storage**
+
+We're using one of the storage functions: `localStorage`
+
+- it’s for **small amounts** of data (between 2Mb-10Mb)
+- it stores data in **key value** pairs
+
+`localStorage` is **insecure** (no good for ~~sensitive data~~ - see [Please Stop Using Local Storage](https://dev.to/rdegges/please-stop-using-local-storage-1i04)).  
+However, it’s **good for non-critical data**.
+
+---
+
+# LOCAL STORAGE: **02**
+<!-- .slide: class="crammed" -->
+
+Instead of *cookies*, many websites now use **local storage** to keep small amounts of **data between visits**. It can:
+
+- **store user preferences** 
+- **personalise each visit**
+
+You can **see what a website stores** in your own browser:
+
+- open the **web inspector**
+- select the **"Application" tab**…
+
+---
+
+![local storage in the browser Application tab](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-application-tab.png)
+
+---
+
+**Facebook** uses `localStorage` for several settings:
+
+![Facebook local storage](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-facebook.png)
+
+You can see stored **objects** (`{…}`) and **arrays** (`[…]`)  
+Some of the keys describe their purpose…
+
+---
+
+# LOCAL STORAGE: **03**
+<!-- .slide: class="crammed" -->
+
+**Setting** and **getting** data:
+
+```javascript
+localStorage.setItem("name", "Dave");
+localStorage.getItem("name"); // Dave
+```
+
+**Changing** data: **basic syntax**:
+
+```javascript
+localStorage["name"] = "Fania";
+console.log(localStorage["name"]); // Fania
+```
+
+---
+
+# LOCAL STORAGE: **04**
+<!-- .slide: class="crammed" -->
+
+Example: set a localStorage item from a **field value**:
+
+```javascript
+const theName = document.getElementById("name-field");
+
+localStorage.setItem("name", theName.value);
+
+myElement.innerText = localStorage.getItem("name");
+```
+
+---
+
+# LOCAL STORAGE: **05**
+<!-- .slide: class="crammed smallcode" -->
+
+**remove** an item from `localStorage` or **clear all**:
+
+```javascript
+localStorage.removeItem("name");
+localStorage.clear();
+```
+
+you can also attach an `eventListener` for various uses:
+
+```javascript
+localStorage.addEventListener("change", myFunction);
+```
+
+`myFunction` handles **actions** on the `localStorage` data.
+
+**NOTE** [browser support is still patchy for LocalStorage *events*](https://stackoverflow.com/a/6846158/123033)
+
+===
+
+# DEMOS
+
+- [Store a name with local storage from an input form](https://front-end-materials.github.io/local-storage/local-storage-form/)  
+[view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-form)
+- [store multiple names in localStorage](https://front-end-materials.github.io/local-storage/local-storage-object/)  
+[view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-object)
+
+
+
+
+
+
+
+
+
+
+
+
 <section>
   <section data-markdown>
     <textarea data-template>
