@@ -63,29 +63,1324 @@
 </section>
 
 <section>
+  <section data-markdown>
+    <textarea data-template>
 
-  <section>
-    <h2>Assessment</h2>
-    <p><em>100% Portfolio</em></p>
-    <p><time>25 January 2024 (Thursday)</time></p>
-    <p>Reflective journal that documents design and development decisions (~ 500 words)</p>
+    ## Assessment
+
+    *100%* Portfolio
+    <time>25 January 2024 (Thursday)</time>
+
+    Reflective journal that documents design and development decisions (~ 500 words)
+
     <p class="nomargin">+</p>
-    <p>Create a website that explores design and development possibilities extending from the content learned in this unit</p>
-  </section>
+    
+    Create a website that explores design and development possibilities extending from the content learned in this unit
 
-  <section>
-    <h2>Submission</h2>
-    <p>Turnitin on Blackboard</p>
-    <p><time>25 January 2024 (Thursday)</time></p>
-    <p>Zip file containing all of your files</p>
-    <p>(html, css, js, any images, plus docx)</p>
-  </section>
+    ---
 
-  <section>
-    <h2>Plagiarism</h2>
-    <p>Do <em>NOT</em> copy other students work</p>
-    <p>Do <em>NOT</em> copy code online without <span class="gray"> reference</span></p>
-    <p>Do <em>NOT</em> use full code templates</p>
+    ## Submission
+
+    Turnitin on Blackboard
+
+    <time>25 January 2024 (Thursday)</time>
+
+    Zip file containing all of your files
+
+    (html, css, js, any images, plus docx)
+
+    ---
+
+    ## Plagiarism
+
+    Do *NOT* copy other students work
+
+    Do *NOT* copy code online without <span class="gray"> reference</span>
+
+    Do *NOT* use full code templates, **FRAMEWORKS**
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JAVASCRIPT HISTORY: 01
+    <!-- .slide: class="smalltext centered" -->
+
+    - **created in 10 days** in May **1995** by [Brendan Eich](https://brendaneich.com/), then at Netscape (now Mozilla). Original name **Mocha**, chosen by [Marc Andreessen](https://en.wikipedia.org/wiki/Marc_Andreessen), founder of [Netscape](https://www.engadget.com/2014/05/10/history-of-netscape/).
+    - In 1995 the name became **LiveScript** then, after a trademark license from [Sun](https://www.oracle.com/sun/) it became **JavaScript**—a **marketing move** as Java was then a popular way of running applets in browsers.
+
+    **Beginners** still **confuse** the two languages.
+
+    <small>[A Short History of JavaScript (W3C)](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)</small>
+
+    ---
+
+    ## JAVASCRIPT HISTORY: 02
+    <!-- .slide: class="smalltext" -->
+
+    - **1995:** JavaScript created in 10 days as “Mocha”
+    - **1997:** ECMAScript standard established ([see ECMA](http://www.ecma-international.org/ "Standardization of Information and Communication Technology and Consumer Electronics: an international private (membership-based) non-profit standards organization for information and communication systems"))
+    - **1999:** ES3 - Microsoft discover WWW. IE5 everywhere.
+    - **2000–2005:** [XMLHttpRequest](https://hpbn.co/xmlhttprequest/) (AJAX): Outlook Web Access (2000), Gmail (2004), Google Maps (2005)
+    - **2009:** ES5 - established JavaScript, and standard [JSON](https://www.json.org)
+    - **2015:** ES6/ECMAScript2015 - some is syntactic sugar, no firm agreement on anything more radical yet
+    - **NOW:** [ES7/ECMAScript2016](http://exploringjs.com/es2016-es2017/ "Dr. Axel Rauschmayer is a trusted source on JavaScript") - go no further!
+
+    Reference: [benmccormick.org](https://benmccormick.org/2015/09/14/es5-es6-es2016-es-next-whats-going-on-with-javascript-versioning/) (2015)
+
+    ---
+
+    ## JAVASCRIPT HISTORY: 03
+    <!-- .slide: class="smalltext" -->
+
+    **JavaScript** is an *implementation* of **ECMAScript**
+
+    [ActionScript](http://www.adobe.com/devnet/actionscript.html "Remember Flash? And Adobe AIR") is/was another (["whatever happened to ES4?"](http://www.mikechambers.com/blog/2008/08/14/actionscript-3-and-ecmascript-4/ "YAWN. The whining."))
+
+    ## The **ECMA standards** (PDFs):
+
+    - [The ECMA-262 6th Edition / June 2015](http://www.ecma-international.org/ecma-262/6.0/ECMA-262.pdf)
+    - [The ECMA-262 7th Edition / June 2016](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)
+    - [The ECMA JSON standard](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+
+    ---
+
+    ## JAVASCRIPT HISTORY: 04
+    <!-- .slide: class="crammed smalltext" -->
+
+    ## ES6: JavaScript in **transition**
+
+    e.g. [`promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise "ext: example shows multiple fast clicking"),
+    [`const`](https://blog.mariusschulz.com/2015/12/31/constant-variables-in-javascript-or-when-const-isnt-constant "ext: why const is not for constant values"),
+    [`let`](https://davidwalsh.name/for-and-against-let "ext: for and against let"),
+    [`modules`](http://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules "ext: really good chapter on modules"), … 
+
+    ~~**ES5** concatenation:~~
+    ```javascript
+    var name = 'My name is ' + first + ' ' + last + '.'
+    ```
+    **ES6** template Literals (interpolation). Note *backticks*:
+    ```javascript
+    let name = `My name is ${first} ${last}.`
+    ```
+
+    See [ES6 browser support (TL;DR warning: BIG table!)](http://kangax.github.io/compat-table/es6/)
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JS HOW IT WORKS: 1
+    <!-- .slide: class="crammed smalltext" -->
+
+    1. builds an **execution stack** to handle your code
+    2. executes your code **synchronously** (one thing at a time)
+    3. the browser adds user events (e.g. click) to an **event queue**
+    4. if the **execution stack** is empty…
+    5. …JavaScript **checks** the event queue for **actionable events**
+
+    ---
+
+    The browser does things *asynchronously* (**rendering the page**, making **HTTP calls**, storing **user events** in the queue…) while JavaScript handles things *synchronously*…
+
+    …except for `async` (see [js Goes Async](https://www.sitepoint.com/javascript-goes-asynchronous-awesome/) and [MDN/async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function))
+
+    ---
+
+    ## JS HOW IT WORKS: 2
+    <!-- .slide: class="crammed smalltext smallcode" -->
+
+    - you use it to access the **Document Object Model** (DOM)
+    - you **make changes** and **get information** from the DOM
+
+    Example:
+
+    ```css
+    a.highlight {
+      background: yellow;
+    }
+    ```
+    ```js
+    const myLinks = document.getElementsByTagName('a');
+
+    for(let i=0; i < myLinks.length; i++){
+      myLinks[i].classList.add("highlight");
+    }
+
+    ```
+
+    See [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction "Mozilla Web Docs")
+
+    ---
+
+    ## JS HOW IT WORKS: 3
+    <!-- .slide: class="float-l-img smalltext" -->
+
+    The first element in the **Document Object Model** (DOM) tree is `html`, containing the `head` and `body` **children** tags:
+
+    ```html
+    <html>
+      <head> … </head>
+      <body> … </body>
+    </html>  
+    ```
+
+    Relationships between elements are called **parent**, **child** and **sibling** nodes
+
+    From: [Document Object Model Structure](http://www.corelangs.com/js/dom/domtree.html)
+
+    ---
+
+    ## JS HOW IT WORKS: 4
+
+    ![Document Object Model diagram with hand-drawn annotations](imgs/dom.png "From a JQuery course http://cs.wellesley.edu/~cs110/reading/DOM-JQ.html")
+
+    ---
+
+    ## JS HOW IT WORKS: 5
+
+    ### THE BROWSER EVENT LOOP
+
+    In a browser, everything runs in an **event loop** so you use **event listeners** to errr… *listen for events* triggered by the **user** or **other processes**:
+
+    ```js
+    myElement.addEventListener("click", MyFunction);
+    ```
+
+    ---
+
+    While **CSS** can be triggered by focus/hover/etc.  
+    **JavaScript** can listen for **hundreds** of events.
+
+    See: [Web Event reference (MDN)](https://developer.mozilla.org/en-US/docs/Web/Events)
+
+    ---
+
+    ## JS HOW IT WORKS: 6
+    <!-- .slide: class="smalltext" -->
+
+    ### How is JavaScript used?
+
+    - form **validation** of user input
+    - handling **data** (e.g. **JSON**)
+    - interactive **user interfaces** and feedback
+    - web-based **apps** (mobile and desktop)
+    - web and mobile **frameworks**
+    - **applications** built on web technologies
+    - **games** with HTML5 canvas ([HTML5 Games website](http://html5games.com/Best/702b9531-c136-437a-ab97-0b209d893b55))
+    - Three.js examples: [cars](http://carvisualizer.plus360degrees.com/threejs/), [Aquarium](http://webglsamples.org/aquarium/aquarium.html),  [periodic table](https://mrdoob.com/lab/javascript/threejs/css3d/periodictable/)
+
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JAVASCRIPT SYNTAX: 1
+    <!-- .slide: class="smallcode" -->
+
+    ### **C-FAMILY** STYLE SYNTAX
+
+    familiar if you've used C-family languages:
+
+    ``` javascript
+    const myArray = ["C", "C++", "Java", "Go", "Perl", "PHP",  
+                     "R", "Ruby", "Rust", "Swift", "TypeScript"];
+
+    ```
+    [Array methods (W3Schools)](http://www.w3schools.com/js/js_array_methods.asp)
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 2
+
+    ### DYNAMIC TYPING
+
+    - 6 **primitive types** (not objects):  
+      `undefined`, `null`, `boolean`, `number` (always a float), `string`, [`symbol` (ES6)](https://docs.microsoft.com/en-us/scripting/javascript/reference/symbol-object-javascript "For creating a unique identifier for object properties")
+    - JavaScript **works out the type** for a variable value
+    - you can change a `let` value from **one type to another**
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 3
+    <!-- .slide: class="crammed smallcode" -->
+
+    ### VARIABLES (`var`), `let`, `const`
+
+    ```javascript
+    let greet, helloUser; // initialise two variables
+    greet = "hello";  // assign a value
+    let userInput = // get user input from the DOM  
+    helloUser = `Oh, ${greet} ${userInput}`;
+
+    let myVar = // can be: string, number, boolean
+    const myVar = // can be: array, object, function…
+
+    myVar === myVar01; // true if the same
+    myVar !== myVar01; // true if different
+    ```
+
+    `const` can store an **immutable type** (e.g. array, function), the **elements** or **properties** of which can change.
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 4
+    <!-- .slide: class="crammed smalltext smallcode" -->
+
+    ### VARIABLE scope: **var** and **let**
+
+    ```javascript
+    function demoLet() {
+      //tuce is *not* visible out here
+      for( let tuce = 0; tuce < 5; tuce+=1 ) {
+        //tuce is only visible in here (in the for())
+      }
+      //tuce is *not* visible out here
+    }
+    function demoVar() {
+      //nish *is* visible out here
+      for( var nish = 0; nish < 5; nish++ ) {
+        //nish is visible to the whole function
+      }
+      //nish *is* visible out here
+    }
+    ```
+    […difference between using “let” and “var” to declare a variable?](http://stackoverflow.com/a/11444416/123033)
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 5
+    <!-- .slide: class="smalltext smallcode" -->
+
+    ### FUNCTIONS
+
+    function **declaration** || **expression** (as a `const` variable):
+
+    ```javascript
+    function multiplyNums(x, y) {
+      return x * y;
+    } // function declaration
+
+    // function expression (as an arrow function)
+    const multiplyNums = (x, y) => x * y;
+    ```
+
+    Nearly everything in JavaScript is an **object**, including functions which can be used _as variables_ **including function call parameters**. ([MDN functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions))
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 6
+    <!-- .slide: class="smallcode smalltext" -->
+
+    ### **ARROW** FUNCTIONS: **COMPACT**
+
+    ```javascript
+    const multiplyNums = (x, y) => x * y;
+
+    const square = x => multiplyNums (x, x);
+    square(8); // 64
+
+    const squares = [1,2,3,4,5];
+    squares.map(num => square(num));
+    // [1, 4, 9, 16, 25] much better than a for loop!
+    ```
+
+    <!-- …you can use **function composition** with **pure functions**: (**same input** always **gives same** output, self-contained with **no side-effects**) -->
+
+    See [Arrow Functions (MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+
+    <!-- ---
+
+    ## JAVASCRIPT SYNTAX: 7
+
+    ### **PURE** FUNCTIONS: **COMPACT** AND **SAFE**
+
+    ```javascript
+    const hexagrams = square(8); // hexagrams is 64
+
+    console.log(`I Ching: always ${hexagrams} hexagrams!`);
+    // I Ching: always 64 hexagrams
+    ```
+
+    A pure function with **parameters** in a template literal:
+
+    ```javascript
+    console.log(`This is not a ${square(4)}-bit laptop!`);
+    // This is not a 16-bit laptop!
+    ``` -->
+
+    <!-- ---
+
+    ## JAVASCRIPT SYNTAX: 7
+
+    ### **GENERATOR** FUNCTIONS\*
+
+    Example: a simple counter limiter:
+
+    ```javascript
+    function* count () {
+      let index = 1;
+      while (index < 4) {
+        yield index++;
+      }
+    }
+    const upTo3 = count();
+
+    upTo3.next(); // value: 1, done: false
+    upTo3.next(); // value: 2, done: false
+    upTo3.next(); // value: 3, done: false
+    upTo3.next(); // value: undefined, done: true
+    ``` -->
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 7
+    <!-- .slide: class="smalltext smallcode" -->
+
+    ### JavaScript [Math](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Math "Moxilla Developer Netwrork detailed JS Math Reference") Object e.g.
+
+    ```javascript
+    Math.round(4.5); // 5
+    Math.pow(8,2); Math.sqrt(64); // 64, 8
+    Math.abs(-4.7); // 4.7
+    Math.ceil(4.4); Math.floor(4.7); // 5, 4
+    Math.max(0, 150, 30, 20, -8, -200); // 150 (and min)
+    Math.random(); // a float from 0 to (almost) 1
+    Math.floor(Math.random() * 10); // number between 0 and 9
+    ```
+
+    if you get `NaN` and you (know/want/think it is) a number:  
+    ```javascript
+    parseFloat(aFloatYouThink); parseInt(AnIntegerYouThink);
+    ```
+
+    See: [1](http://www.w3schools.com/jsref/jsref_obj_math.asp),
+    [2](http://www.w3schools.com/js/js_number_methods.asp), 
+    [3](http://www.w3schools.com/jsref/jsref_type_conversion.asp)
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 8
+    <!-- .slide: class="crammed smallcode" -->
+
+    ### Array **[…]**
+
+    'array literal' - create and populate:
+
+    ```javascript
+    const myArray = [1, 2, "free",  multiplyNums(8, 8)];
+    myArray[3]; // 64
+    ```
+
+    **No comma** after the **last element**!
+
+    ```javascript
+    myArray[3] = multiplyNums; // no parameters
+    myArray[3](2, 2); // 4
+    ```
+
+    **omit trailing brackets()** in functions with **no parameters** when inside an array - you can pass them later
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 9
+    <!-- .slide: class="smallcode smalltext" -->
+
+    ### OBJECT **{…}** (ASSOCIATIVE ARRAY)
+
+    **key value** pairs, declared as 'object literals':  
+
+    ```javascript
+    const myObject = {key1: 64, key2: "text"};
+    ```
+
+    Access/change: **square brackets** or **dot** (property) syntax:
+    ```javascript
+    alert(myObject['key2']); // [] syntax… but dot is best:
+    alert(myObject.key2); // key2 is a property of myObject
+    myObject.key2 = 'More text'; // change the value of key2
+    ```
+
+    add a new key/value pair:  
+    ```javascript
+    myObject.key3 = Math.PI;
+    ```
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 10
+    <!-- .slide: class="crammed smallcode" -->
+
+    **Object keys** _look_ like names (as in variables), but *keys are strings*, which allow expressions such as:
+
+    ```javascript
+    let myKey = 2;
+
+    console.log(myObject["key"+myKey]);
+    console.log(myObject["key"+2]);
+    console.log(myObject["key2"]); // same as both above
+    ```
+
+    Key strings (as in **JSON**) mean JavaScript loose typing turns `"key"+2` to `"key"+"2"`, evaluating to the string `"key2"`
+
+    ```javascript
+    const myObject = {
+      "key1": 64,
+      "key2": "text"
+    };
+    ```
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 11
+
+    ### conditionals
+
+    ```javascript
+    if (condition is true) {
+      // do stuff once here
+    }
+    ```
+
+    ```javascript
+    if (condition is true) {
+      // do stuff
+    } else {
+      // condition is false, do other stuff
+    }
+    ```
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 12
+
+    ### LOOPS **1** (FOR)
+    ```javascript
+    for (counter; condition; increment/decrement) {
+      // do stuff using the counter
+    }
+    ```
+
+    ```javascript
+    let arrayLen = myArray.length; // store first
+    for (let i = 0; i < arrayLen; i += 1) {
+      console.log(myArray[i]);
+    }
+    ```
+
+    …but `map` with an **anonymous function** is cleaner:
+
+    ```javascript
+    myArray.map(i => console.log(i));
+    ```
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 13
+
+    ### LOOPS **2** (WHILE)
+
+    ```javascript
+    while (condition is true) {
+      // do stuff until it's false
+    }
+    ```
+
+    or
+
+    ```javascript
+    do {
+      // some stuff at least once, then…
+    }
+    while (condition); // …do it again IF condition is true
+    ```
+
+    ---
+
+    ## JAVASCRIPT SYNTAX: 14
+    <!-- .slide: class="smallcode" -->
+
+    ### SWITCH/CASE
+
+    ```javascript
+    switch (new Date().getDay()) {
+      case 6:
+        text = "Today is Saturday";
+      break; 
+      case 0:
+        text = "Today is Sunday";
+      break; 
+      default: 
+        text = "Looking forward to the Weekend";
+    }
+    ```
+
+    [W3Schools switch statement](http://www.w3schools.com/js/js_switch.asp)
+
+    <!-- ---
+
+    ## JAVASCRIPT SYNTAX: 15
+
+    ### **OBJECT**===ES6 **CLASS**  
+      (+SYNTACTIC SUGAR)
+
+    > JavaScript uses a **prototypal inheritance model** with **object prototypes** as "classes". New objects inherit methods and attributes of their parent object through the prototype chain. It’s possible to modify an object’s prototype at any time, making JavaScript very flexible and dynamic.
+
+    [ES6 classes and JavaScript prototypes (Sebastian Porto)](https://reinteractive.com/posts/235-es6-classes-and-javascript-prototypes)  
+    **But** [Think twice about ES6 classes (Christian Alfoni)](http://christianalfoni.github.io/javascript/2015/01/01/think-twice-about-classes.html) -->
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JAVASCRIPT: THE DOM 01
+    <!-- .slide: class="smalltext" -->
+
+    There is a predefined `document` object in JavaScript, which can be used to **access all elements** in the **DOM**.
+
+    This `document` object is the  **root** of **all objects** in your **webpage**.
+
+    To access HTML elements, start with the `document` object, e.g.:
+
+    ```javascript
+    document.body.innerHTML = "Some text";
+    ```
+
+    (`body` is an element of the DOM, so you access it with the `document` object, then you can **change the content** of its `innerHTML` property)
+
+    ---
+
+    ## JAVASCRIPT: THE DOM 02
+    <!-- .slide: class="smalltext smallcode" -->
+
+    A more scalable example:
+
+    ```javascript
+    function addTextNode() {
+      const myheading = document.createElement("h1");
+      const mytext = document.createTextNode("Hello Big Heading!");
+      myheading.appendChild(mytext);
+      document.body.appendChild(myheading);
+    }
+    ```
+
+    ---
+
+    ## JAVASCRIPT: THE DOM 03
+    <!-- .slide: class="smalltext smallcode" -->
+
+    You can get a reference to elements by `tag`, `id`, `class`:
+
+    ```javascript
+    document.getElementsByTagName("section");  // returns a list
+
+    document.getElementById("my_id"); // no '#' needed && returns single item
+
+    document.getElementsByClassName("my_class"); // no '.' needed & returns a list
+    ```
+
+    <small>W3Schools: <a href="https://www.w3schools.com/js/js_htmldom_elements.asp">JavaScript HTML DOM Elements</a></small>
+
+    ---
+
+    ## JAVASCRIPT: THE DOM 03
+    <!-- .slide: class="smalltext smallcode" -->
+
+    `document.querySelectorAll` uses CSS-style selectors:
+
+    ```javascript
+    document.querySelector("p#id");  // returns one item
+
+    document.querySelectorAll("p.intro");  // returns a list
+
+    document.querySelectorAll("main section:first-child");  // returns a list
+
+    document.querySelectorAll('.mydata [data-period="current"]');  // returns a list
+
+    ```
+
+    <small>MDN: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">Document.querySelector()</a></small>
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JAVASCRIPT DEMOS: 01
+    <!-- .slide: class="crammed smalltext smallcode" -->
+          
+    The simplest possible example (in HTML/JS files):
+
+    <!-- In the **HTML** (.html) file: -->
+
+    ```html
+    <p id="my-id">Click me!</p>
+    ```
+
+    <!-- In the **JavaScript** (.js) file: -->
+
+    ```javascript
+    // store a reference to the element to be clicked:
+    const clickThing = document.getElementById("my-id");
+
+    // what to do when the user clicks:
+    function do_stuff() {
+      alert("You clicked me!");
+    }
+    // or you can use the simpler "fat arrow" syntax:
+    const do_stuff = () => { alert("You clicked me!"); }
+
+    // "listen" for the click:
+    clickThing.addEventListener("click", do_stuff);
+    ```
+
+    ---
+
+    ## JAVASCRIPT DEMOS: 02
+    <!-- .slide: class="smalltext smallcode" -->
+
+    **Get the date** and **display it** (HTML/JS):
+
+    ```html
+    <button id="myBtn">What's the date?</button>
+
+    <p id="demo">I've no idea. Click the button.</p>
+    ```
+
+    ```javascript
+    document.getElementById("myBtn").addEventListener("click", showDate);
+    const dateDemo = document.getElementById("demo");
+
+    function showDate() {
+      let d = new Date();
+      dateDemo.innerHTML = `Oh, it’s: ${d.toDateString()}!`;
+    }
+    ```
+
+    - DEMO: [Show date](https://front-end-materials.github.io/js-simple-examples/js-show-date/)
+    -	W3Schools: [JavaScript HTML DOM EventListener](http://www.w3schools.com/js/js_htmldom_eventlistener.asp)
+    - W3Schools: [JavaScript toDateString() Method](http://www.w3schools.com/jsref/jsref_todatestring.asp)
+
+    ---
+
+    ## JAVASCRIPT DEMOS: 03
+    <!-- .slide: class="crammed smalltext smallcode" -->
+
+    get a name from a form and display it (HTML/JS):
+
+    ```html
+    <form id="getName" action="#" method="post">
+      <label for="userName">Enter name:</label>
+      <input id="userName" type="text" placeholder="name here please :-)">
+      <input type="submit">
+    </form>
+    <p>Hello, <span id="myName">anonymous user! Your name?</span></p>
+    ```
+
+    ```javascript
+    function PerformGreeting() {
+      if(userName.value){
+        myName.innerHTML = `<strong>${userName.value}</strong>!`;
+      } else {
+        myName.innerHTML = `<strong>person with no name</strong>!`;
+      }
+      event.preventDefault(); // disables default form submission
+    }
+
+    getName.addEventListener("submit", PerformGreeting);
+    ```
+
+    [DEMO: get input](https://front-end-materials.github.io/js-simple-examples/js-get-input/)
+
+    ---
+
+    ## JAVASCRIPT DEMOS: 04
+    <!-- .slide: class="smalltext smallcode" -->
+
+    You can also **manipulate CSS** with JavaScript…
+
+    ```html
+    <p>A link <a class="thelinks" href="#">link 1 text</a>.</p>
+    <p>Another link <a class="thelinks" href="#">link 2 text</a>.</p>
+
+    <button id="changeLinks">Change link colours</button>
+    ```
+
+    ```css
+    .changeMe {
+      background: #336; color: #fcc; transition: all 1s;
+    }
+    ```
+
+    ```javascript
+    const thelinks = document.getElementsByClassName('thelinks');
+
+    const addClass = () => {
+      for(i in thelinks){
+        thelinks[i].classList.toggle("changeMe");
+      }
+    }
+    changeLinks.addEventListener("click", addClass);
+    ```
+
+    [DEMO: change elements](https://front-end-materials.github.io/js-simple-examples/js-change-element/)
+
+    ---
+
+    ## JAVASCRIPT DEMOS: 05
+    <!-- .slide: class="smalltext smallcode" -->
+
+    You can also **change CSS** with JavaScript… e.g. a **background image**:
+
+    ```html
+    <p>See a: <span id="car">Tesla</span> / <span id="cat">kitten</span>!</p>
+
+    <p id="picture">your choice of picture here</p>
+    ```
+
+    ```javascript
+    function showImage() {
+      picture.innerHTML = "";
+      console.log(event.target.id);
+      picture.classList = event.target.id;
+    }
+
+    [car,cat].forEach(c => c.addEventListener( "click", showImage ));
+    ```
+
+    DEMO: [swap CSS class](https://front-end-materials.github.io/js-simple-examples/js-swap-class/)
+
+    ---
+
+    ## JAVASCRIPT DEMOS: 05a
+    <!-- .slide: class="smalltext smallcode" -->
+
+    …and the **CSS** for styling, and the fade transition:
+      
+    ```css
+    #picture {
+      font-size: 75%;
+      text-align: center;
+      line-height: 178px;
+      height: 178px;
+      width: 300px;
+      background-repeat: no-repeat;
+      border: solid #999 2px;
+      transition: all 1s;
+    }
+    .car {
+      background-image: url("images/tesla-model-s.jpg");
+    }
+    .cat {
+      background-image: url("images/kitten.jpg");
+    }
+    ```
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JAVASCRIPT OBJECTS: 01
+    <!-- .slide: class="crammed smalltext smallcode" -->
+
+    Here, the `range` object is a child of the `car` object:
+
+    ```javascript
+    const car = {
+      manufacturer: "Tesla",
+      model: "Model S",
+      range: { normal: "360", ludicrous: "200" },
+      colour: "red",
+      query: function(){
+        answer.innerHTML = 
+          `The <strong>${car.manufacturer} ${car.model}</strong> has a \ 
+              <strong>${car.range.normal} mile</strong> normal range.`;
+      }
+    };
+    question.addEventListener("click", car.query);
+    car.range.ludicrous; // returns: 200
+    ```
+
+    ---
+
+    ## JAVASCRIPT OBJECTS: 02
+    <!-- .slide: class="smalltext smallcode" -->
+
+    Here’s the **HTML**:
+
+    ```html
+    <p id="question">How far will the Tesla travel if you don’t drive like a maniac?</p>
+
+    <p id="answer"></p>
+    ```
+
+    - DEMO: [Accessing object properties](https://front-end-materials.github.io/js-objects/js-object-properties/)
+    - DEMO: [Traversing items in a nested object](https://front-end-materials.github.io/js-objects/js-nested-object/)
+    - MDN: [Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+
+    ---
+
+    ## JAVASCRIPT OBJECTS: 03
+    <!-- .slide: class="smalltext smallcode" -->
+
+    An **array of objects** is a common **JSON data format** used for exchanging data on the web e.g. from **APIs**
+
+    ```javascript
+    const animals = [
+      { cat: {
+          horns: "none",
+          fluff: "loads",
+          eyes: "super-advanced, research this"
+        }
+      },
+      { goat: {
+          horns: "yes",
+          fluff: "not really",
+          eyes: "really weird, you should check"
+        }
+      }
+    ];
+
+    animals[0].cat.horns // "none"
+    ```
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## JSON: 01
+    <!-- .slide: class="left-align smalltext" -->
+
+    a **JavaScript object** can contain any of these: `string`, `number`, `array`, `object`, `boolean` (true|false), `null` plus (unike JSON) **functions** and **comments**…
+
+    **JavaScript objects** are the basis of the **JSON data format**:
+
+    > JavaScript’s object-literal syntax is so simple, fexible, and concise, it was adapted to become the **dominant standard for client/server communication in the form of JSON**, which is more compact and flexible than the **XML** that it replaced.
+
+    — [Programming JavaScript Applications, Eric Elliott](https://www.ebooks.com/1719226/programming-javascript-applications/elliott-eric/)
+
+    ---
+
+    ## JSON: 02
+    <!-- .slide: class="left-align smalltext" -->
+
+    JSON is a **compact plain-text portable data format**, read/writable (**parsed**) in many languages. It can be generated by **databases** as a data API, **translated** into/from (say) XML…
+
+    You can **use JSON data from many APIs** that offer **data** from **remote servers**: [news](https://open-platform.theguardian.com/access/), [weather](https://www.metoffice.gov.uk/datapoint), [Wikipedia](https://www.mediawiki.org/wiki/API:Main_page), [game statistics](https://www.programmableweb.com/category/games/apis?category=20098)…
+
+    [JSON Placeholder](https://jsonplaceholder.typicode.com/) has some good examples and can be used for development or learning. An **array of objects** is a common format.
+
+    For a more in-depth introduction to APIs in general, see [**"What Are APIs and How Do They Work?"** (ProgrammableWeb.com)](https://www.programmableweb.com/api-university/what-are-apis-and-how-do-they-work)
+
+    ---
+
+    ## JSON: 03
+    <!-- .slide: class="left-align crammed smalltext" -->
+
+    The [Discourse forum](https://www.discourse.org/) has a JSON API. See [discussions on this forum](https://discourse.threejs.org/c/discussion)…
+
+    ![Discourse Three.js forum](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/discourse-three-js-forum.png)
+
+    ---
+
+    ## JSON: 04
+    <!-- .slide: class="left-align crammed smalltext" -->
+
+    …and **add ".json"** [after a URL](https://discourse.threejs.org/c/discussion.json) for the **JSON data** (use a [JSON beautifier](https://beautifier.io/)):
+
+    ![Discourse Three.js forum JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/discourse-raw-json.png)
+
+    ---
+
+    ## JSON: 05
+    <!-- .slide: class="left-align crammed smalltext" -->
+
+    …or browser plug-in like the [Chrome extension JSONview](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc)):
+
+    ![Discourse Three.js forum JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/discourse-three-js-forum-json.png)-->
+
+
+    ---
+
+    ## JSON: 06
+    <!-- .slide: class="left-align smalltext smallcode" -->
+
+    here, "users" is an **array** of **objects**, so if we fetch this data:
+
+    ```js
+    {
+      users: [
+      {  
+        id: 2,  
+        username: "fraguada",  
+        name: "Luis E. Fraguada",  
+        avatar_template: "/user_avatar/discourse.[…].png"
+      },
+      {
+        id: 1956,  
+        username: "andreasplesch",  
+    //... MUCH MORE DATA!
+    ```
+
+    …and assign it to a variable `test`, you can get user names with [map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map):
+
+    ```javascript
+    test.users.map(u => u.username)
+    // ["fraguada", "andreasplesch", etc...]
+    ```
+
+    ---
+
+    ## JSON: 07
+    <!-- .slide: class="left-align crammed smalltext smallcode" -->
+
+    Rather than the older AJAX method, `fetch`, has [promises](https://developers.google.com/web/fundamentals/primers/promises) that **wait for a result** and only `.then` **do something**:
+
+    ```js
+    fetch(data-to-fetch)
+      .then( response => {
+        // check the response was okay (200)
+        console.log(`response: ${response.status}`);
+        return response.json();
+      })
+      .then( data => {
+        // check the raw JSON data in the console
+        console.log(data);
+        // assign it to a variable
+        theData = data;
+        // and do stuff with the data here
+      })
+    ```
+
+    DEMO: `fetch` [Star Wars film info from an API](https://front-end-materials.github.io/json-api/api-starwars/) ([code here](https://github.com/front-end-materials/json-api/tree/master/api-starwars))
+
+    ---
+
+    ## JSON: 08
+    <!-- .slide: class="left-align smalltext smallcode" -->
+
+    `asyc/await` offers simpler syntax for (e.g.) a `fetch.then` promise.  
+    You can use `try`… `catch` in case the **API call fails**:
+
+    ```js
+    const getUserAsync = async (name) => {
+      try {
+        let response = await fetch(`${API_URL}${name}`);
+        let data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err); // or a message to the user
+      }
+    }
+    ```
+
+    DEMO: [User details from the GitHub API](https://front-end-materials.github.io/json-api/api-github/) ([code here](https://github.com/front-end-materials/json-api/tree/master/api-github))
+
+    - [Promises, async/await (javascript.info)](https://javascript.info/async)
+    - [Why JavaScript Async/Await Is Better Than Plain Promises](https://dev.to/gafi/7-reasons-to-always-use-async-await-over-plain-promises-tutorial-4ej9)
+
+    ---
+
+    ## JSON: 09
+    <!-- .slide: class="left-align smalltext smallcode" -->
+
+    This extract, stored in a file (e.g. "menu.json") could generate different menus:
+
+    ```js
+    {
+      "popupMenu": [
+        {"label": "New", "url": "/new", "id": "createNew"},
+        {"label": "Open", "url": "/open", "id": "openDocument"},
+        {"label": "Close", "url": "/close", "id": "closeDocument"}
+      ]
+      "helpMenu": [
+        // array of menu item objects here
+      ]
+    }
+    ```
+
+    Being **just data**, JSON *cannot* contain **comments** or **functions** (like **JavaScript objects** do)
+
+    ---
+
+    ## JSON: 10
+    <!-- .slide: class="left-align smalltext smallcode" -->
+
+    because JSON has no **parent** or **variable assignment**, after getting JSON data from an API, it is assigned to a variable as a **JavaScript object** (e.g. a `const`) that **contains the JSON data** so it can be read by JavaScript for use on your website
+
+    - [Introducing JSON](http://www.json.org/ "ECMA-404 The JSON Data Interchange Standard")
+    - [JSON Basics: What You Need to Know](https://www.elated.com/articles/json-basics/)
+
+    ---
+
+    ## JSON: 11
+    <!-- .slide: class="left-align smalltext" -->
+
+    here’s the raw **JSON data** for the [current solar weather](https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json), often used to **predict aurora displays** in the Arctic Circle
+
+    ![Solar data raw JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/solar-raw-json.png)
+
+    ---
+
+    ## JSON: 12
+    <!-- .slide: class="left-align crammed smalltext smallcode" -->
+
+    [space weather readings are freely available](https://services.swpc.noaa.gov/) from [noaa.gov](https://www.noaa.gov/)—this solar weather data is in a **nested array**, with the first array as a **header row**:
+
+    ```json
+    [
+      ["time_tag", "planetary_k_index", "dst"],
+      [
+        "2018-11-13 00:00:00",
+        "2.67",
+        "-10.2685003"
+      ],
+      [ // much, much more data...
+    ]
+    ```
+
+    - access the first `"time_tag"` date at `[1][0]`
+    - the `"planetary_k_index"` ([K-index](https://en.wikipedia.org/wiki/K-index)) data (`"2.67"`) at `[1][1]`
+    - and the "dst" ([disturbance storm time](https://en.wikipedia.org/wiki/Disturbance_storm_time_index)) at `[1][2]`
+
+    ---
+
+    ## JSON: 13
+    <!-- .slide: class="left-align smalltext smallcode" -->
+
+    the data is **stored in a variable** called `jsonData`—the `processData` function gets, formats and displays it (`showData` is the ID of the element that shows… the data!)
+
+    ```js
+    const processData = () => {
+      showData.innerHTML = `
+        <strong>Time:</strong> ${ jsonData[1][0] }
+        <br><strong>K index:</strong> ${ jsonData[1][1] }
+        <br><strong>distance of solar wind:
+        </strong> ${ jsonData[1][2] }`;
+    }
+
+    getData.addEventListener("click", processData);
+    ```
+
+    abbreviated for clarity. 
+
+    ---
+
+    ## JSON: 14
+    <!-- .slide: class="left-align" -->
+
+    - [Get and display live solar data from an API](https://front-end-materials.github.io/json-api/api-solar-data/)
+    - [download code](https://github.com/front-end-materials/json-api/tree/master/api-solar-data)
+    - [See the raw data here](https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json)
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## API: 01
+    <!-- .slide: class="left-align smalltext" -->
+
+    **Using APIs in your project**
+
+    - [search for an API on programmableweb.com](https://www.programmableweb.com/category/all/apis) that interests you
+    - **show initiative** by presenting data in an interesting way
+    - you may need to **run your code** on a **server**
+    - you often need to apply for an **API key**
+    - [Google Maps API](https://developers.google.com/maps/documentation/javascript/) now wants your credit card :-(
+
+    [What Is an API… Why Does It Matter? (M. Patterson 2015)](https://sproutsocial.com/insights/what-is-an-api/)  
+    [Find Social media APIs on the web's largest API directory](https://www.programmableweb.com/category/Social/apis)
+
+    ---
+
+    ## API: 02
+    <!-- .slide: class="left-align crammed smalltext" -->
+            
+    **API Security**
+
+    - all **JavaScript is insecure** as it can be read from the browser
+    - if you store your API key in JavaScript, **anyone can read it**
+    - **don't worry**—this is **not a problem for your assignment**!
+
+    Extra info: **Just getting data** is fine, but if you're **sending new data** *to* an API, *anyone* could use your key, so it has to be secure. Most options store the key on the server or use [OAuth](https://oauth.net/ "An authorization framework enabling a third-party applications to obtain limited access to an HTTP service").
+
+    See: [how can you secure a JavaScript application's API calls](https://stackoverflow.com/a/18516778/123033)  
+    and [Securing API Keys in a JavaScript Single Page App](http://billpatrianakos.me/blog/2016/02/15/securing-api-keys-in-a-javascript-single-page-app/ "Bill Patrianakos, 2016")
+
+    ---
+
+    ## API: 03
+    <!-- .slide: class="left-align crammed smalltext" -->
+        
+    **Accessing APIs**
+
+    - browsers usually only allow access to files from the **same domain**
+    - you may need a **local server** to access remote JSON on your computer
+    - [CORS](https://www.telerik.com/blogs/using-cors-with-all-modern-browsers "Cross-Origin Resource Sharing") allows access from **other domains**
+
+    **Cross-origin resource sharing** (CORS) is often set up by API providers, allowing restricted resources to be requested via **secure cross-domain requests** for data (via https) between browsers and web servers. Modern browsers can use CORS in API containers (`XMLHttpRequest`, `fetch`, `async`) to reduce cross-origin HTTP request risks.
+
+    See: [Using CORS](https://www.html5rocks.com/en/tutorials/cors/), 
+    [CORS (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS), [CORS in detail (Stack Overflow)](https://stackoverflow.com/a/43881141/123033)
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## LOCAL STORAGE: 01
+    <!-- .slide: class="crammed" -->
+
+    Browsers have **their own storage**
+
+    We're using one of the storage functions: `localStorage`
+
+    - it’s for **small amounts** of data (between 2Mb-10Mb)
+    - it stores data in **key value** pairs
+
+    `localStorage` is **insecure** (no good for ~~sensitive data~~ - see [Please Stop Using Local Storage](https://dev.to/rdegges/please-stop-using-local-storage-1i04)).  
+    However, it’s **good for non-critical data**.
+
+    ---
+
+    ## LOCAL STORAGE: 02
+    <!-- .slide: class="crammed" -->
+
+    Instead of *cookies*, many websites now use **local storage** to keep small amounts of **data between visits**. It can:
+
+    - **store user preferences** 
+    - **personalise each visit**
+
+    You can **see what a website stores** in your own browser:
+
+    - open the **web inspector**
+    - select the **"Application" tab**…
+
+    ---
+
+    ![local storage in the browser Application tab](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-application-tab.png)
+
+    ---
+
+    **Facebook** uses `localStorage` for several settings:
+
+    ![Facebook local storage](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-facebook.png)
+
+    You can see stored **objects** (`{…}`) and **arrays** (`[…]`)  
+    Some of the keys describe their purpose…
+
+    ---
+
+    ## LOCAL STORAGE: 03
+    <!-- .slide: class="crammed" -->
+
+    **Setting** and **getting** data:
+
+    ```javascript
+    localStorage.setItem("name", "Dave");
+    localStorage.getItem("name"); // Dave
+    ```
+
+    **Changing** data: **basic syntax**:
+
+    ```javascript
+    localStorage["name"] = "Fania";
+    console.log(localStorage["name"]); // Fania
+    ```
+
+    ---
+
+    ## LOCAL STORAGE: 04
+    <!-- .slide: class="crammed" -->
+
+    Example: set a localStorage item from a **field value**:
+
+    ```javascript
+    const theName = document.getElementById("name-field");
+
+    localStorage.setItem("name", theName.value);
+
+    myElement.innerText = localStorage.getItem("name");
+    ```
+
+    ---
+
+    ## LOCAL STORAGE: 05
+    <!-- .slide: class="crammed smallcode" -->
+
+    **remove** an item from `localStorage` or **clear all**:
+
+    ```javascript
+    localStorage.removeItem("name");
+    localStorage.clear();
+    ```
+
+    you can also attach an `eventListener` for various uses:
+
+    ```javascript
+    localStorage.addEventListener("change", myFunction);
+    ```
+
+    `myFunction` handles **actions** on the `localStorage` data.
+
+    **NOTE** [browser support is still patchy for LocalStorage *events*](https://stackoverflow.com/a/6846158/123033)
+
+    ===
+
+    ## DEMOS
+
+    - [Store a name with local storage from an input form](https://front-end-materials.github.io/local-storage/local-storage-form/)  
+    [view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-form)
+    - [store multiple names in localStorage](https://front-end-materials.github.io/local-storage/local-storage-object/)  
+    [view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-object)
+
+
+
+
+
+    </textarea>
+  </section>
+</section>
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    </textarea>
   </section>
 </section>
 
@@ -93,118 +1388,6 @@
 
 
 
-
-
-
-
-
-
-
-# LOCAL STORAGE: **01**
-<!-- .slide: class="crammed" -->
-
-Browsers have **their own storage**
-
-We're using one of the storage functions: `localStorage`
-
-- it’s for **small amounts** of data (between 2Mb-10Mb)
-- it stores data in **key value** pairs
-
-`localStorage` is **insecure** (no good for ~~sensitive data~~ - see [Please Stop Using Local Storage](https://dev.to/rdegges/please-stop-using-local-storage-1i04)).  
-However, it’s **good for non-critical data**.
-
----
-
-# LOCAL STORAGE: **02**
-<!-- .slide: class="crammed" -->
-
-Instead of *cookies*, many websites now use **local storage** to keep small amounts of **data between visits**. It can:
-
-- **store user preferences** 
-- **personalise each visit**
-
-You can **see what a website stores** in your own browser:
-
-- open the **web inspector**
-- select the **"Application" tab**…
-
----
-
-![local storage in the browser Application tab](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-application-tab.png)
-
----
-
-**Facebook** uses `localStorage` for several settings:
-
-![Facebook local storage](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-facebook.png)
-
-You can see stored **objects** (`{…}`) and **arrays** (`[…]`)  
-Some of the keys describe their purpose…
-
----
-
-# LOCAL STORAGE: **03**
-<!-- .slide: class="crammed" -->
-
-**Setting** and **getting** data:
-
-```javascript
-localStorage.setItem("name", "Dave");
-localStorage.getItem("name"); // Dave
-```
-
-**Changing** data: **basic syntax**:
-
-```javascript
-localStorage["name"] = "Fania";
-console.log(localStorage["name"]); // Fania
-```
-
----
-
-# LOCAL STORAGE: **04**
-<!-- .slide: class="crammed" -->
-
-Example: set a localStorage item from a **field value**:
-
-```javascript
-const theName = document.getElementById("name-field");
-
-localStorage.setItem("name", theName.value);
-
-myElement.innerText = localStorage.getItem("name");
-```
-
----
-
-# LOCAL STORAGE: **05**
-<!-- .slide: class="crammed smallcode" -->
-
-**remove** an item from `localStorage` or **clear all**:
-
-```javascript
-localStorage.removeItem("name");
-localStorage.clear();
-```
-
-you can also attach an `eventListener` for various uses:
-
-```javascript
-localStorage.addEventListener("change", myFunction);
-```
-
-`myFunction` handles **actions** on the `localStorage` data.
-
-**NOTE** [browser support is still patchy for LocalStorage *events*](https://stackoverflow.com/a/6846158/123033)
-
-===
-
-# DEMOS
-
-- [Store a name with local storage from an input form](https://front-end-materials.github.io/local-storage/local-storage-form/)  
-[view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-form)
-- [store multiple names in localStorage](https://front-end-materials.github.io/local-storage/local-storage-object/)  
-[view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-object)
 
 
 
