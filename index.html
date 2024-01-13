@@ -179,7 +179,7 @@
     <textarea data-template>
 
     ## JS HOW IT WORKS: 1
-    <!-- .slide: class="crammed smalltext" -->
+    <!-- .slide: class="smalltext" -->
 
     1. builds an **execution stack** to handle your code
     2. executes your code **synchronously** (one thing at a time)
@@ -189,63 +189,21 @@
 
     ---
 
+    ## JS HOW IT WORKS: 2
+
     The browser does things *asynchronously* (**rendering the page**, making **HTTP calls**, storing **user events** in the queue…) while JavaScript handles things *synchronously*…
 
     …except for `async` (see [js Goes Async](https://www.sitepoint.com/javascript-goes-asynchronous-awesome/) and [MDN/async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function))
 
     ---
 
-    ## JS HOW IT WORKS: 2
-    <!-- .slide: class="crammed smalltext smallcode" -->
-
-    - you use it to access the **Document Object Model** (DOM)
-    - you **make changes** and **get information** from the DOM
-
-    Example:
-
-    ```css
-    a.highlight {
-      background: yellow;
-    }
-    ```
-    ```js
-    const myLinks = document.getElementsByTagName('a');
-
-    for(let i=0; i < myLinks.length; i++){
-      myLinks[i].classList.add("highlight");
-    }
-
-    ```
-
-    See [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction "Mozilla Web Docs")
-
-    ---
-
     ## JS HOW IT WORKS: 3
-    <!-- .slide: class="float-l-img smalltext" -->
-
-    The first element in the **Document Object Model** (DOM) tree is `html`, containing the `head` and `body` **children** tags:
-
-    ```html
-    <html>
-      <head> … </head>
-      <body> … </body>
-    </html>  
-    ```
-
-    Relationships between elements are called **parent**, **child** and **sibling** nodes
-
-    From: [Document Object Model Structure](http://www.corelangs.com/js/dom/domtree.html)
-
-    ---
-
-    ## JS HOW IT WORKS: 4
 
     ![Document Object Model diagram with hand-drawn annotations](imgs/dom.png "From a JQuery course http://cs.wellesley.edu/~cs110/reading/DOM-JQ.html")
 
     ---
 
-    ## JS HOW IT WORKS: 5
+    ## JS HOW IT WORKS: 4
 
     ### THE BROWSER EVENT LOOP
 
@@ -256,6 +214,8 @@
     ```
 
     ---
+
+    ## JS HOW IT WORKS: 5
 
     While **CSS** can be triggered by focus/hover/etc.  
     **JavaScript** can listen for **hundreds** of events.
@@ -752,6 +712,7 @@
     // "listen" for the click:
     clickThing.addEventListener("click", do_stuff);
     ```
+    <p id="demo_1">Click me!</p>
 
     ---
 
@@ -775,10 +736,8 @@
       dateDemo.innerHTML = `Oh, it’s: ${d.toDateString()}!`;
     }
     ```
-
-    - DEMO: [Show date](https://front-end-materials.github.io/js-simple-examples/js-show-date/)
-    -	W3Schools: [JavaScript HTML DOM EventListener](http://www.w3schools.com/js/js_htmldom_eventlistener.asp)
-    - W3Schools: [JavaScript toDateString() Method](http://www.w3schools.com/jsref/jsref_todatestring.asp)
+    <button id="demo2b">What's the date?</button>
+    <p id="demo2p">I've no idea. Click the button.</p>
 
     ---
 
@@ -809,7 +768,12 @@
     getName.addEventListener("submit", PerformGreeting);
     ```
 
-    [DEMO: get input](https://front-end-materials.github.io/js-simple-examples/js-get-input/)
+    <form id="demo3getName" action="#" method="post">
+      <label for="demo3userName">Enter name:</label>
+      <input id="demo3userName" type="text" placeholder="name here please :-)">
+      <input type="submit">
+    </form>
+    <p>Hello, <span id="demo3myName">anonymous user! Your name?</span></p>
 
     ---
 
@@ -841,59 +805,13 @@
     }
     changeLinks.addEventListener("click", addClass);
     ```
-
-    [DEMO: change elements](https://front-end-materials.github.io/js-simple-examples/js-change-element/)
-
-    ---
-
-    ## JAVASCRIPT DEMOS: 05
-    <!-- .slide: class="smalltext smallcode" -->
-
-    You can also **change CSS** with JavaScript… e.g. a **background image**:
-
-    ```html
-    <p>See a: <span id="car">Tesla</span> / <span id="cat">kitten</span>!</p>
-
-    <p id="picture">your choice of picture here</p>
-    ```
-
-    ```javascript
-    function showImage() {
-      picture.innerHTML = "";
-      console.log(event.target.id);
-      picture.classList = event.target.id;
+    <style>
+    .demo4changeMe {
+      background: #336; color: #fcc; transition: all 1s;
     }
-
-    [car,cat].forEach(c => c.addEventListener( "click", showImage ));
-    ```
-
-    DEMO: [swap CSS class](https://front-end-materials.github.io/js-simple-examples/js-swap-class/)
-
-    ---
-
-    ## JAVASCRIPT DEMOS: 05a
-    <!-- .slide: class="smalltext smallcode" -->
-
-    …and the **CSS** for styling, and the fade transition:
-      
-    ```css
-    #picture {
-      font-size: 75%;
-      text-align: center;
-      line-height: 178px;
-      height: 178px;
-      width: 300px;
-      background-repeat: no-repeat;
-      border: solid #999 2px;
-      transition: all 1s;
-    }
-    .car {
-      background-image: url("images/tesla-model-s.jpg");
-    }
-    .cat {
-      background-image: url("images/kitten.jpg");
-    }
-    ```
+    </style>
+    <p>A link <a class="demo4thelinks" href="#">link 1 text</a>. Another link <a class="demo4thelinks" href="#">link 2 text</a>.</p>
+    <button id="demo4changeLinks">Change link colours</button>
 
     </textarea>
   </section>
@@ -927,23 +845,6 @@
     ---
 
     ## JAVASCRIPT OBJECTS: 02
-    <!-- .slide: class="smalltext smallcode" -->
-
-    Here’s the **HTML**:
-
-    ```html
-    <p id="question">How far will the Tesla travel if you don’t drive like a maniac?</p>
-
-    <p id="answer"></p>
-    ```
-
-    - DEMO: [Accessing object properties](https://front-end-materials.github.io/js-objects/js-object-properties/)
-    - DEMO: [Traversing items in a nested object](https://front-end-materials.github.io/js-objects/js-nested-object/)
-    - MDN: [Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
-
-    ---
-
-    ## JAVASCRIPT OBJECTS: 03
     <!-- .slide: class="smalltext smallcode" -->
 
     An **array of objects** is a common **JSON data format** used for exchanging data on the web e.g. from **APIs**
@@ -1024,7 +925,7 @@
 
     …or browser plug-in like the [Chrome extension JSONview](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc)):
 
-    ![Discourse Three.js forum JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/discourse-three-js-forum-json.png)-->
+    ![Discourse Three.js forum JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/discourse-three-js-forum-json.png)
 
 
     ---
@@ -1079,8 +980,6 @@
       })
     ```
 
-    DEMO: `fetch` [Star Wars film info from an API](https://front-end-materials.github.io/json-api/api-starwars/) ([code here](https://github.com/front-end-materials/json-api/tree/master/api-starwars))
-
     ---
 
     ## JSON: 08
@@ -1100,8 +999,11 @@
       }
     }
     ```
-
-    DEMO: [User details from the GitHub API](https://front-end-materials.github.io/json-api/api-github/) ([code here](https://github.com/front-end-materials/json-api/tree/master/api-github))
+    ```js
+    async function getUserAsync(name) {
+      // same as above
+    }
+    ```
 
     - [Promises, async/await (javascript.info)](https://javascript.info/async)
     - [Why JavaScript Async/Await Is Better Than Plain Promises](https://dev.to/gafi/7-reasons-to-always-use-async-await-over-plain-promises-tutorial-4ej9)
@@ -1143,7 +1045,7 @@
     ## JSON: 11
     <!-- .slide: class="left-align smalltext" -->
 
-    here’s the raw **JSON data** for the [current solar weather](https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json), often used to **predict aurora displays** in the Arctic Circle
+    here’s the raw **JSON data** for the [current solar weather](https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json), often used to **predict aurora displays** in the Arctic Circle
 
     ![Solar data raw JSON](https://raw.githubusercontent.com/front-end-materials/images/master/json-api/solar-raw-json.png)
 
@@ -1156,49 +1058,38 @@
 
     ```json
     [
-      ["time_tag", "planetary_k_index", "dst"],
+      ["time_tag", "Kp", "a_running", "station_count"],
       [
-        "2018-11-13 00:00:00",
-        "2.67",
-        "-10.2685003"
+        "2024-01-06 00:00:00.000",
+        "0.67",
+        "3",
+        "8"
       ],
       [ // much, much more data...
     ]
     ```
 
     - access the first `"time_tag"` date at `[1][0]`
-    - the `"planetary_k_index"` ([K-index](https://en.wikipedia.org/wiki/K-index)) data (`"2.67"`) at `[1][1]`
-    - and the "dst" ([disturbance storm time](https://en.wikipedia.org/wiki/Disturbance_storm_time_index)) at `[1][2]`
+    - the `"Kp"` ([K-index](https://en.wikipedia.org/wiki/K-index)) data (`"0.67"`) at `[1][1]`
 
     ---
 
     ## JSON: 13
     <!-- .slide: class="left-align smalltext smallcode" -->
 
-    the data is **stored in a variable** called `jsonData`—the `processData` function gets, formats and displays it (`showData` is the ID of the element that shows… the data!)
+    the data is **stored in a variable** called `jsonData`.  
+    the `processData` function gets, formats and displays it.  
+    (`showData` is the ID of the element that shows… the data!)
 
     ```js
-    const processData = () => {
+    function processData() {
       showData.innerHTML = `
-        <strong>Time:</strong> ${ jsonData[1][0] }
-        <br><strong>K index:</strong> ${ jsonData[1][1] }
-        <br><strong>distance of solar wind:
-        </strong> ${ jsonData[1][2] }`;
+        <strong>Time:</strong> ${ jsonData[1][0] }<br>
+        <strong>K index:</strong> ${ jsonData[1][1] }`;
     }
 
     getData.addEventListener("click", processData);
     ```
-
-    abbreviated for clarity. 
-
-    ---
-
-    ## JSON: 14
-    <!-- .slide: class="left-align" -->
-
-    - [Get and display live solar data from an API](https://front-end-materials.github.io/json-api/api-solar-data/)
-    - [download code](https://github.com/front-end-materials/json-api/tree/master/api-solar-data)
-    - [See the raw data here](https://services.swpc.noaa.gov/products/geospace/planetary-k-index-dst.json)
 
     </textarea>
   </section>
@@ -1211,32 +1102,26 @@
     ## API: 01
     <!-- .slide: class="left-align smalltext" -->
 
-    **Using APIs in your project**
+    **Application Programming Interface** (*API*)  
 
-    - [search for an API on programmableweb.com](https://www.programmableweb.com/category/all/apis) that interests you
-    - **show initiative** by presenting data in an interesting way
-    - you may need to **run your code** on a **server**
-    - you often need to apply for an **API key**
-    - [Google Maps API](https://developers.google.com/maps/documentation/javascript/) now wants your credit card :-(
+    In the context of the Web this typically means **REST***ful* (representational state transfer) architectural models (standard HTTP(S) protocol):
 
-    [What Is an API… Why Does It Matter? (M. Patterson 2015)](https://sproutsocial.com/insights/what-is-an-api/)  
-    [Find Social media APIs on the web's largest API directory](https://www.programmableweb.com/category/Social/apis)
+    - GET, PUT, POST and DELETE
+    - JSON/XML
+    - stateless (each request is independent of each other)
+    - responses are cacheable
+
 
     ---
 
     ## API: 02
     <!-- .slide: class="left-align crammed smalltext" -->
             
-    **API Security**
+    ### API Security
 
     - all **JavaScript is insecure** as it can be read from the browser
     - if you store your API key in JavaScript, **anyone can read it**
-    - **don't worry**—this is **not a problem for your assignment**!
-
-    Extra info: **Just getting data** is fine, but if you're **sending new data** *to* an API, *anyone* could use your key, so it has to be secure. Most options store the key on the server or use [OAuth](https://oauth.net/ "An authorization framework enabling a third-party applications to obtain limited access to an HTTP service").
-
-    See: [how can you secure a JavaScript application's API calls](https://stackoverflow.com/a/18516778/123033)  
-    and [Securing API Keys in a JavaScript Single Page App](http://billpatrianakos.me/blog/2016/02/15/securing-api-keys-in-a-javascript-single-page-app/ "Bill Patrianakos, 2016")
+    - *take it out of your file before you submit it to Blackboard or upload it anywhere public like glitch!*
 
     ---
 
@@ -1270,49 +1155,49 @@
     We're using one of the storage functions: `localStorage`
 
     - it’s for **small amounts** of data (between 2Mb-10Mb)
-    - it stores data in **key value** pairs
+    - it stores data as *strings* in **key value** pairs
 
     `localStorage` is **insecure** (no good for ~~sensitive data~~ - see [Please Stop Using Local Storage](https://dev.to/rdegges/please-stop-using-local-storage-1i04)).  
     However, it’s **good for non-critical data**.
 
     ---
 
+    ## Cookies? 4KB
+    <!-- .slide: class="cookies" -->
+
+    "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmn"
+
+    ---
+
     ## LOCAL STORAGE: 02
     <!-- .slide: class="crammed" -->
 
-    Instead of *cookies*, many websites now use **local storage** to keep small amounts of **data between visits**. It can:
+    Instead of *cookies*, many websites now use **local storage** to keep small amounts of **data between visits**.
 
-    - **store user preferences** 
-    - **personalise each visit**
+    - store user preferences
+    - personalise each visit
 
-    You can **see what a website stores** in your own browser:
+    You can *see what a website stores* in your own browser:
 
     - open the **web inspector**
-    - select the **"Application" tab**…
-
-    ---
-
-    ![local storage in the browser Application tab](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-application-tab.png)
-
-    ---
-
-    **Facebook** uses `localStorage` for several settings:
-
-    ![Facebook local storage](https://github.com/front-end-materials/images/raw/master/local-storage/local-storage-facebook.png)
-
-    You can see stored **objects** (`{…}`) and **arrays** (`[…]`)  
-    Some of the keys describe their purpose…
+    - select the **"Application"** tab…
 
     ---
 
     ## LOCAL STORAGE: 03
+
+    [uca.ac.uk](https://uca.ac.uk)
+
+    ---
+
+    ## LOCAL STORAGE: 04
     <!-- .slide: class="crammed" -->
 
     **Setting** and **getting** data:
 
     ```javascript
-    localStorage.setItem("name", "Dave");
-    localStorage.getItem("name"); // Dave
+    localStorage.setItem("name", "Fania");
+    localStorage.getItem("name"); // Fania
     ```
 
     **Changing** data: **basic syntax**:
@@ -1330,7 +1215,7 @@
     Example: set a localStorage item from a **field value**:
 
     ```javascript
-    const theName = document.getElementById("name-field");
+    const theName = document.getElementById("variableName");
 
     localStorage.setItem("name", theName.value);
 
@@ -1357,20 +1242,7 @@
 
     `myFunction` handles **actions** on the `localStorage` data.
 
-    **NOTE** [browser support is still patchy for LocalStorage *events*](https://stackoverflow.com/a/6846158/123033)
-
-    ===
-
-    ## DEMOS
-
-    - [Store a name with local storage from an input form](https://front-end-materials.github.io/local-storage/local-storage-form/)  
-    [view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-form)
-    - [store multiple names in localStorage](https://front-end-materials.github.io/local-storage/local-storage-object/)  
-    [view code](https://github.com/front-end-materials/local-storage/tree/master/local-storage-object)
-
-
-
-
+    **NOTE** [browser support patchy for LocalStorage *events*](https://stackoverflow.com/a/6846158/123033)
 
     </textarea>
   </section>
@@ -1463,5 +1335,6 @@
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
+		<script src="fania.js"></script>
 	</body>
 </html>

@@ -25,6 +25,13 @@
   flex-direction: row;
   gap: 20px;
 }
+.reveal .slides>section.present .smalltext {
+  font-size: .8em;
+}
+.reveal .slides>section.present .cookies {
+  font-size: .35em;
+  word-break: break-all;
+}
 
 .reveal h2 {
   color: var(--blue);
