@@ -32,6 +32,10 @@
   font-size: .35em;
   word-break: break-all;
 }
+.reveal .slides>section.present .fit-img p img {
+  object-fit: contain;
+  max-height: 70vh;
+}
 
 .reveal h2 {
   color: var(--blue);

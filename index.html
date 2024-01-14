@@ -54,13 +54,14 @@
 
       - Assessment, Deadline
       - HTML DOM
-      - Validation
-      - Testing, Console, Browser Developer Tools
       - JavaScript
       - Events, Event Handling
+      - Validation
+      - Testing, Console, Browser Developer Tools
     </textarea>
   </section>
 </section>
+
 
 <section>
   <section data-markdown>
@@ -102,6 +103,22 @@
     </textarea>
   </section>
 </section>
+
+
+<section>
+  <section data-markdown>
+    <textarea data-template>
+
+    ## This Presentation
+
+    Press 'o' to see the overview of slides
+
+    then use the arrow keys to navigate to any slide you like and press the mouse to go to it
+
+    </textarea>
+  </section>
+</section>
+
 
 <section>
   <section data-markdown>
@@ -785,19 +802,15 @@
     ```html
     <p>A link <a class="thelinks" href="#">link 1 text</a>.</p>
     <p>Another link <a class="thelinks" href="#">link 2 text</a>.</p>
-
     <button id="changeLinks">Change link colours</button>
     ```
-
     ```css
     .changeMe {
       background: #336; color: #fcc; transition: all 1s;
     }
     ```
-
     ```javascript
     const thelinks = document.getElementsByClassName('thelinks');
-
     const addClass = () => {
       for(i in thelinks){
         thelinks[i].classList.toggle("changeMe");
@@ -1252,24 +1265,199 @@
   <section data-markdown>
     <textarea data-template>
 
+    ## QUALITY CONTROL 1
+
+    - Validation
+    - Browser Developer Tools
+    - Browser Console
+    - Testing
+
+    ---
+
+    ## QUALITY CONTROL 2
+
+    [Beautify your Code](https://codebeautify.org/) if you mess it up badly!  
+    It helps you spot error like missing braces, etc.
+
+    ---
+
+    ## QUALITY CONTROL 3
+
+    ### Validation
+
+    The *[W3C HTML Validator](https://validator.w3.org/)* checks your code to make sure it conforms to the **International Standard**.
+
+    There is also a *[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)* called **Jigsaw**!
+
+    ---
+
+    ## QUALITY CONTROL 4
+
+    ### Validation
+
+    Also available is a **[Link Checker](https://validator.w3.org/checklink)** that searches your site for broken urls.
+
+    Don't forget the [Wave Web Accessibility Checker](https://wave.webaim.org/)
+
+    ---
+
+    ## QUALITY CONTROL 5
+    <!-- .slide: class="smalltext" -->
+
+    ### Google Lighthouse
+
+    Analyses your site for mobile or desktop on these metrics:
+
+    - Performance
+    - Accessibility
+    - Best Practices
+    - SEO (Search Engine Optimisation)
+    - PWA (Progressive Web Apps)
+
+    ---
+    <!-- .slide: class="fit-img" -->
+    [![lighthouse uca](imgs/lighthouse-uca.png)](https://www.uca.ac.uk/)
+
+    ---
+
+    ## QUALITY CONTROL 7
+
+    ### Google Resources
+
+    - [PageSpeed](https://pagespeed.web.dev/) is now integrated into Lighthouse but here you can test the performance of your site only
+    - [SEO Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide): very very useful (must read for any wannabe professional developer)!
+
+    ---
+
+    ## QUALITY CONTROL 8
+
+    ### [Console Reference](https://developer.mozilla.org/en-US/docs/Web/API/console#usage)
+
+    - `console.log()` 
+    - `console.dir()` 
+    - `console.info()` 
+    - `console.warn()` 
+    - `console.error()`
+
+    ---
+
+    ## QUALITY CONTROL 9
+
+    ### [Console Reference](https://developer.mozilla.org/en-US/docs/Web/API/console#usage)
+
+    - `console.assert()` 
+    - `console.trace()` 
+    - `console.table()` 
+    - `console.time()` 
+    - `console.time()` 
+
+    ---
+
+    ## QUALITY CONTROL 10
+
+    ### Console Log & Dir
+
+    ```html
+    <h1 id="myHeading">Hello World</h1>
+    ```
+    ```js
+    const elem = document.getElementById('myHeading');
+    console.log(elem);
+    // <h1 id="myHeading">...</h1>
+    console.dir(elem);
+    // h1#myHeading
+    ```
+
+    ---
+
+    ## QUALITY CONTROL 11
+
+    ### Console Log
+
+    ```html
+    <p id="myId1">one</p>
+    <p id="myId2">two</p>
+    <p id="myId3">three</p>
+    ```
+    ```js
+    const e1 = document.getElementById('myId1');
+    const e2 = document.getElementById('myId2');
+    const e3 = document.getElementById('myId3');
+    console.log( e1, e2, e3 );
+    // <p id="myId1">...</p> <p id="myId2">...</p> <p id="myId3">...</p>
+    console.log( { e1, e2, e3 } );
+    // { e1: p#myId1, e1: p#myId2, e3: p#myId3 }
+    ```
+
+    ---
+
+    ## QUALITY CONTROL 12
+
+    ### Console Dir
+
+    ```html
+    <p id="myId1">one</p>
+    <p id="myId2">two</p>
+    <p id="myId3">three</p>
+    ```
+    ```js
+    const e1 = document.getElementById('myId1');
+    const e2 = document.getElementById('myId2');
+    const e3 = document.getElementById('myId3');
+    console.dir( e1 ); // can only print ONE object !!
+    // p#myId1
+    console.dir( { e1, e2, e3 } ); // group them! 
+    // (but actually in this case the console.log version displays it nicer!)
+    // Object
+    ```
+
+    ---
+
+    ## QUALITY CONTROL 13
+
+    ### Testing Frameworks
+
+    - [Mocha](https://mochajs.org/) & [Jest](https://jestjs.io/)
+
+    ---
+
+    ## QUALITY CONTROL 14
+
+    but in principle you don't need frameworks, as there's the old, tried & tested, vanilla JavaScript:
+
+    ```js
+    try {
+      // some stuff
+    } catch (error) {
+      // console.error(error);
+    } finally {
+      // some more stuff after
+    }
+    ```
+    `console.assert(*expression*)`
+
     </textarea>
   </section>
 </section>
 
 
 
+<section>
+  <section data-markdown>
+    <textarea data-template>
 
+    ## Next Steps
 
+    - [FrontEnd CheckList](https://frontendchecklist.io/)
+    - [Developer Roadmaps](https://roadmap.sh/)
+    - [Microsoft Frontend Bootcamp](https://microsoft.github.io/frontend-bootcamp/)
+    - [Meta Tags Toolkit](https://metatags.io/)
+    - [Head Elements](https://htmlhead.dev/)
+    - [Favicon Generator](https://redketchup.io/favicon-generator)
 
-
-
-
-
-
-
-
-
-
+    </textarea>
+  </section>
+</section>
 
 
 <section>
